@@ -1,6 +1,6 @@
 package ar.edu.utn.frba.tadp.entes;
 
-public class Persona {
+public class Persona implements Nombrable {
 	
 	private String nombre;
 	

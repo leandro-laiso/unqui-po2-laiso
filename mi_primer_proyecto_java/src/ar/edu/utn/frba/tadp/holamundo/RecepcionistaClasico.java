@@ -1,10 +1,12 @@
 package ar.edu.utn.frba.tadp.holamundo;
 
+import ar.edu.utn.frba.tadp.entes.Nombrable;
+
 public class RecepcionistaClasico extends Recepcionista {
 
 	@Override
-	protected String armarSaludo(Mundo mundo) {
-		return "hola " + mundo.getNombre();
+	protected String armarSaludo(Nombrable nombrable) {
+		return "hola " + nombrable.getNombre();
 	}
 
 }
