@@ -32,7 +32,7 @@ public class Persona implements Nombrable {
 	}
 	
 	public Boolean viveEn(Direccion direccion) {
-		return this.direccion == direccion;
+		return this.direccion.equals(direccion);
 	}
 	
 	@Override

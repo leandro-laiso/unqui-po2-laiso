@@ -36,6 +36,8 @@ public class Test {
 //	}
 	
 	// Para probar == (fallo, la direccion es la misma pero en diferentes instancias)
+	// Con los cambios en viveEn() de Persona (uso de .equals()) y redefinicion de equals() y hashCode en direccion(),
+	// ya se puede detectar correctamente la igualdad de direcciones entre diferentes instancias
 	public static void main(String[] args) {
 		Direccion direccion = new Direccion("Esteban de Luca", 1322);
 		Persona persona = createPersona();

@@ -14,4 +14,18 @@ public class Direccion {
 	public String toString() {
 		return this.calle + " " + this.numero;
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (!(obj instanceof Direccion)) {
+			return false;
+		}
+		Direccion otraDireccion = (Direccion) obj;
+		return this.calle.equals(otraDireccion.calle) && this.numero == otraDireccion.numero; 
+	}
+	
+	@Override
+	public int hashCode() {
+		return this.calle.hashCode() + this.numero;
+	}
 }
