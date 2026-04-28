@@ -17,7 +17,7 @@ public abstract class Recepcionista {
 	}
 	
 	private String getArticulo(Nombrable nombrable) {
-		return nombrable.getClass().getAnnotation(Articulo.class).value();
+		return nombrable.getClass().getAnnotation(Articulo.class).cardinal();
 	}
 	
 	protected abstract String armarSaludo(Nombrable nombrable);
