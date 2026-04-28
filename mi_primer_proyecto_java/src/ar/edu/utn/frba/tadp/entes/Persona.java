@@ -31,6 +31,10 @@ public class Persona implements Nombrable {
 		this.direccion = direccion;
 	}
 	
+	public Boolean viveEn(Direccion direccion) {
+		return this.direccion == direccion;
+	}
+	
 	@Override
 	public String toString() {
 		return this.getNombre();
