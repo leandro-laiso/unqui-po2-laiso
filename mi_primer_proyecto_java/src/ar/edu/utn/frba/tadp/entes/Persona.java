@@ -1,5 +1,6 @@
 package ar.edu.utn.frba.tadp.entes;
 
+@Articulo("una")
 public class Persona implements Nombrable {
 	
 	private String nombre;

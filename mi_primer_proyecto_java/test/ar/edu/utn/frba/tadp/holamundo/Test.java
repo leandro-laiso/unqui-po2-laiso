@@ -38,16 +38,27 @@ public class Test {
 	// Para probar == (fallo, la direccion es la misma pero en diferentes instancias)
 	// Con los cambios en viveEn() de Persona (uso de .equals()) y redefinicion de equals() y hashCode en direccion(),
 	// ya se puede detectar correctamente la igualdad de direcciones entre diferentes instancias
+//	public static void main(String[] args) {
+//		Direccion direccion = new Direccion("Esteban de Luca", 1322);
+//		Persona persona = createPersona();
+//		if(persona.viveEn(direccion)){
+//			System.out.println(persona + " vive en " + direccion);
+//		} else {
+//			System.out.println(persona + " no vive en " + direccion +", vive en " +
+//				persona.getDireccion());
+//		}
+//	}
+	
+	// Para probar annotation Articulo ("un" o "una")
 	public static void main(String[] args) {
-		Direccion direccion = new Direccion("Esteban de Luca", 1322);
-		Persona persona = createPersona();
-		if(persona.viveEn(direccion)){
-			System.out.println(persona + " vive en " + direccion);
-		} else {
-			System.out.println(persona + " no vive en " + direccion +", vive en " +
-				persona.getDireccion());
-		}
+		Recepcionista recepcionista = makeRecepcionista();
+		Nombrable nombrable = new Mundo();
+		recepcionista.saludar(nombrable);
+		System.out.println();
+		nombrable = new Persona("José", new Direccion("Alfonsina Storni", 770));
+		recepcionista.saludar(nombrable);
 	}
+
 	
 	
 	private static Collection<Nombrable> getNombrables() {
