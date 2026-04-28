@@ -32,7 +32,17 @@ public class Persona implements Nombrable {
 		this.direccion = direccion;
 	}
 	
-	public Boolean viveEn(Direccion direccion) {
+	/**
+	 * @deprecated use {@link Persona#vive(Direccion)}
+	 */
+	public boolean viveEn(Direccion direccion) {
+		return this.vive(direccion);
+	}
+	
+	/**
+	 * @return si es la direccion de la persona
+	 */
+	public boolean vive(Direccion direccion) {
 		return this.direccion.equals(direccion);
 	}
 	

@@ -1,10 +1,20 @@
 package ar.edu.utn.frba.tadp.entes;
 
+
+/**
+* Es un Value Object (inmutable) que representa
+* una dirección física
+* @author Leo Gassman
+*/
 public class Direccion {
 	
 	private String calle;
 	private int numero;
 	
+	/**
+	* @param calle Calle o Avenida del domicilio, no puede ser null
+	* @param numero Altura
+	*/
 	public Direccion(String calle, int numero) {
 		this.calle = calle;
 		this.numero = numero;
