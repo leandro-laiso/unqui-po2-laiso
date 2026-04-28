@@ -3,7 +3,9 @@ package ar.edu.utn.frba.tadp.holamundo;
 public class Test {
 	
 	public static void main(String[] args) {
-		new Recepcionista().saludar(new Mundo());
+		Mundo mundo = new Mundo();
+		new RecepcionistaClasico().saludar(mundo);
+		new RecepcionistaFormal().saludar(mundo);
 	}
 	
 }
