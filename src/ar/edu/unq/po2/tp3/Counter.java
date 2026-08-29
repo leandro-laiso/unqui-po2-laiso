@@ -22,5 +22,8 @@ public class Counter {
         return counter;
     }
 
+    public int getOddOcurrences() {
+        return -1; // TODO
+    }
 
 }
