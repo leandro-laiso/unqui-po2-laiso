@@ -1,0 +1,28 @@
+Teniendo en cuenta la documentación oficial de Java:
+1. ¿Qué son los tipos de datos primitivos?
+2. ¿Cuál es la diferencia entre un int y un Integer?
+3. ¿Si se define una variable de instancia de tipo int cual sería su valor predeterminado? ¿Y si se
+define una de tipo Integer? Haga la prueba en Eclipse.
+4. Responder la pregunta del punto anterior (3), pero ahora en lugar de definir una variable de
+instancia se define una variable de método.
+
+
+Respuestas:
+	1.
+	Los tipos de datos primitivos son aquellos tipos que están predefinidos por el lenguaje y que son llamados por una palabra clave (keyword).
+	Los valores primitivos no comparten su estado con otros valores primitivos.
+	En Java, los 8 tipos de datos primitivos son: byte, short, int, long, float, double, boolean, char.
+
+	2.
+	int es un tipo primitivo, mientras que Integer no lo es (es una clase). De esta manera, un Integer puede ser null, tiene clases, se usa en colecciones (ArrayList<Integer>).
+	Además, permite usar el tipo primitivo int como un "unsigned integer" (más rango de valores positivos sin valores negativos), ya que cuenta con métodos como
+	compareUnsigned, divideUnsigned, etc.
+
+	3.
+	El valor predeterminado de una variable de instancia de tipo int sería 0.
+	El valor predeterminado de una variable de instancia de tipo Integer debería ser null (ya que es una clase).
+	Tras probarlo en eclipse, confirmo mis respuestas.
+
+	4.
+	El compilador nunca asigna un valor predeterminado a una variable local no inicializada. Por lo tanto,
+	intentar acceder a dicha variable no inicializada resultará en un error en tiempo de compilación.
