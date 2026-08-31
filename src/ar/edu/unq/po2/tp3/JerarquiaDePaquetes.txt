@@ -1,0 +1,31 @@
+Cree una clase que se encuentre en el paquete model, otra clase que se encuentre en el paquete model.gui y
+otra que se encuentre en el paquete model.stack . Compílelas utilizando la forma que crea conveniente.
+
+1. ¿Cómo están organizadas en el sistema de archivos?
+2. ¿Encuentra alguna relación entre el nombre del paquete y la ubicación de los archivos fuentes de las
+clases (.java) y los archivos compilados (.class)?
+
+Respuestas:
+
+1.
+En el sistema de archivos se genera una estructura de carpetas y subcarpetas que respeta el nombre del paquete.
+De esta manera, cada "." en el nombre del paquete indica la creación de una nueva subcarpeta
+
+En este caso:
+
+ar.edu.unq.po2.tp3.model (JerarquiaDePaquetes1.java)			>>> 	src\ar\edu\unq\po2\tp3\model\JerarquiaDePaquetes1.java
+ar.edu.unq.po2.tp3.model.gui (JerarquiaDePaquetes2.java)		>>> 	src\ar\edu\unq\po2\tp3\model\gui\JerarquiaDePaquetes2.java
+ar.edu.unq.po2.tp3.model.stack (JerarquiaDePaquetes3.java)		>>> 	src\ar\edu\unq\po2\tp3\model\stack\JerarquiaDePaquetes3.java
+
+
+
+
+2.
+Como se respondió en el punto anterior, el nombre del paquete determina la estructura de carpetas donde se ubican los archivos fuentes
+de las clases (.java).
+
+Con los archivos compilados (.class) observo que ocurre lo mismo pero en la carpeta out\production\:
+
+out\production\unqui-po2-laiso\ar\edu\unq\po2\tp3\model\JerarquiaDePaquetes1.class
+out\production\unqui-po2-laiso\ar\edu\unq\po2\tp3\model\gui\JerarquiaDePaquetes1.class
+out\production\unqui-po2-laiso\ar\edu\unq\po2\tp3\model\stack\JerarquiaDePaquetes1.class
