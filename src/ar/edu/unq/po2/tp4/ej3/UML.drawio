@@ -1,0 +1,68 @@
+<mxfile host="Electron">
+  <diagram name="Página-1" id="-3k6f62w6_83M5QsdOvO">
+    <mxGraphModel dx="787" dy="404" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="tcOzFo_eTDPiazEZXA3A-1" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Trabajador" vertex="1">
+          <mxGeometry height="150" width="190" x="30" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="tcOzFo_eTDPiazEZXA3A-2" parent="tcOzFo_eTDPiazEZXA3A-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&amp;nbsp;" vertex="1">
+          <mxGeometry height="26" width="190" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="tcOzFo_eTDPiazEZXA3A-3" parent="tcOzFo_eTDPiazEZXA3A-1" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+          <mxGeometry height="8" width="190" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="tcOzFo_eTDPiazEZXA3A-4" parent="tcOzFo_eTDPiazEZXA3A-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ agregarIngreso(ingreso: IngresoPercibido): void&lt;div&gt;+ getTotalPercibido(): Double&lt;/div&gt;&lt;div&gt;+ getMontoImponible(): Double&lt;/div&gt;&lt;div&gt;+ getImpuestoAPagar(): Double&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="190" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tcOzFo_eTDPiazEZXA3A-5" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="IngresoPercibido" vertex="1">
+          <mxGeometry height="160" width="230" x="410" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="tcOzFo_eTDPiazEZXA3A-6" parent="tcOzFo_eTDPiazEZXA3A-5" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- mes: Month&lt;div&gt;- concepto: String&lt;/div&gt;&lt;div&gt;- montoPercibido: Double&lt;/div&gt;" vertex="1">
+          <mxGeometry height="54" width="230" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="tcOzFo_eTDPiazEZXA3A-7" parent="tcOzFo_eTDPiazEZXA3A-5" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+          <mxGeometry height="8" width="230" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="tcOzFo_eTDPiazEZXA3A-8" parent="tcOzFo_eTDPiazEZXA3A-5" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;u&gt;+ new(mes: Month, concepto: String, montoPercibido: Double)&lt;/u&gt;&lt;/div&gt;&lt;div&gt;+ getMontoPercibido(): Double&lt;/div&gt;+ montoImponible(): Double" vertex="1">
+          <mxGeometry height="72" width="230" y="88" as="geometry" />
+        </mxCell>
+        <mxCell id="tcOzFo_eTDPiazEZXA3A-9" edge="1" parent="1" source="tcOzFo_eTDPiazEZXA3A-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.019;entryY=0.676;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=open;endFill=0;" target="tcOzFo_eTDPiazEZXA3A-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tcOzFo_eTDPiazEZXA3A-16" connectable="0" parent="tcOzFo_eTDPiazEZXA3A-9" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="ingresosPercibidos" vertex="1">
+          <mxGeometry relative="1" x="-0.5537" y="-1" as="geometry">
+            <mxPoint x="48" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tcOzFo_eTDPiazEZXA3A-10" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="IngresoHorasExtra" vertex="1">
+          <mxGeometry height="130" width="226" x="414" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="tcOzFo_eTDPiazEZXA3A-11" parent="tcOzFo_eTDPiazEZXA3A-10" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- cantHorasExtra: int" vertex="1">
+          <mxGeometry height="26" width="226" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="tcOzFo_eTDPiazEZXA3A-12" parent="tcOzFo_eTDPiazEZXA3A-10" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+          <mxGeometry height="8" width="226" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="tcOzFo_eTDPiazEZXA3A-13" parent="tcOzFo_eTDPiazEZXA3A-10" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;u&gt;+ new(mes: Month, concepto: String, montoPercibido: Double, cantHorasExtra: int)&lt;/u&gt;&lt;/div&gt;+ montoImponible(): Double" vertex="1">
+          <mxGeometry height="70" width="226" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tcOzFo_eTDPiazEZXA3A-15" edge="1" parent="1" source="tcOzFo_eTDPiazEZXA3A-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.494;entryY=1.015;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=block;endFill=0;" target="tcOzFo_eTDPiazEZXA3A-8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="524" y="415" />
+              <mxPoint x="524" y="415" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tcOzFo_eTDPiazEZXA3A-17" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="*" vertex="1">
+          <mxGeometry height="30" width="60" x="360" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="tcOzFo_eTDPiazEZXA3A-19" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="1" vertex="1">
+          <mxGeometry height="30" width="60" x="200" y="270" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
