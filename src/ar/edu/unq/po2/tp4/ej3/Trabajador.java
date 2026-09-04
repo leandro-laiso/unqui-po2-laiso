@@ -19,19 +19,11 @@ public class Trabajador {
     }
 
     public Double getTotalPercibido() {
-        Double sumatoria = 0.0;
-        for (IngresoPercibido i: ingresosPercibidos) {
-            sumatoria += i.getMontoPercibido();
-        }
-        return sumatoria;
+        return ingresosPercibidos.stream().mapToDouble(ing -> ing.getMontoPercibido()).sum();
     }
 
     public Double getMontoImponible() {
-        Double sumatoria = 0.0;
-        for (IngresoPercibido i: ingresosPercibidos) {
-            sumatoria += i.montoImponible();
-        }
-        return sumatoria;
+        return ingresosPercibidos.stream().mapToDouble(ing -> ing.montoImponible()).sum();
     }
 
     public Double getImpuestoAPagar() {
