@@ -20,7 +20,7 @@ public class ProductoPrimeraNecesidad extends Producto {
     // Getters & Setters
     @Override
     public Double getPrecio() {
-        return super.getPrecio() - (super.getPrecio() * descuento / 100);
+        return super.getPrecio() * (1.0 - (descuento / 100.0));
     }
 
 }
