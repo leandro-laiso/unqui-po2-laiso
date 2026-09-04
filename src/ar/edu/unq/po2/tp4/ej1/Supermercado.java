@@ -29,11 +29,7 @@ public class Supermercado {
     }
 
     public Double getPrecioTotal() {
-        Double resultado = 0.0;
-        for (Producto p : productos) {
-            resultado += p.getPrecio();
-        }
-        return resultado;
+        return productos.stream().mapToDouble(empleado -> empleado.getPrecio()).sum();
     }
 
 }
