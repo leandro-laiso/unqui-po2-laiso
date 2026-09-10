@@ -1,0 +1,17 @@
+1. Defina la clase Persona y modélela en Smalltalk/Wollok. Una persona tiene un nombre y una fecha de nacimiento, por lo que debe ser posible pedirle su nombre, fecha de nacimiento, edad y debe ser posible compararla en edad con otra persona mediante el mensaje "<".
+    - Definida en el archivo "persona.wlk". La fecha de nacimiento consiste de solamente el año ya que en wollok no hay operaciones avanzadas con tipo fecha. La comparación de edad se hace mediante dos métodos.
+
+2. Defina la clase Mascota y modélela en Smalltalk/Wollok. Una mascota tiene un nombre y una raza (String), por lo que debe ser posible pedirle tales datos.
+    - Definida en el archivo "mascota.wlk".
+
+3. Instancie dos Personas, dos Mascotas e inserte los cuatro objetos en una colección. Itere sobre la colección e imprima un listado con los nombres de todos los objetos de la misma.
+    - Realizado en el archivo "instancias.wpgm"
+
+4. Durante la iteración, ¿fue necesario distinguir si el objeto era una Persona o una Mascota para poder imprimir su nombre? ¿Cómo se llama el mecanismo de abstracción que permite esto?
+    - No, no fue necesario distinguir la clase específica del objeto. El mecanismo de abstracción que permite esto se llama polimorfismo. Distintas clases entienden el mismo mensaje y responden de manera distinta.
+
+5. ¿Podría asegurar que tanto mascotas como personas respondan al mensaje getName() mediante herencia? ¿Cómo? ¿Qué ocurre si Persona es subclase de otra clase que no puede ser modificada por ud.? ¿De qué otra manera puede asegurar el polimorfismo, teniendo en cuenta que está implementando en Java?
+    - Si, se podría asegurar que ambas clases respondan al mensaje getName() mediante herencia, haciendo que ambas sean subclases de una clase (p. ej: Nombrable) que tiene un atributo nombre y el método getName(). No es necesario que Mascota y Persona sobreescriban el método ya que es un getter y funciona igual en ambas clases. Sin embargo, si Persona es subclase de otra clase que no puede ser modificada, esta opción deja de ser posible. En el contexto de Java, se podría asegurar el polimorfismo mediante el uso de una interfaz (similar a la superclase Nombrable antes mencionada) que sea implementada por las clases Persona y Mascota, sin tener que modificar otras clases.
+
+6. Implemente los puntos 1, 2 y 3 según las consideraciones de 4 y 5.
+    - Pendiente

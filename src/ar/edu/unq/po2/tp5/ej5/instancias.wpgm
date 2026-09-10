@@ -1,0 +1,15 @@
+import persona.*
+import mascota.*
+
+program main {
+
+    const persona1 = new Persona(nombre = "Leandro", fechaNacimiento = 2005)
+    const persona2 = new Persona(nombre = "Ulises", fechaNacimiento = 2001)
+    const mascota1 = new Mascota(nombre = "Tobi", raza = "Perro")
+    const mascota2 = new Mascota(nombre = "Keke", raza = "Gato")
+    const coleccion = [persona1, persona2, mascota1, mascota2]
+
+    coleccion.forEach({
+        e => console.println(e.getNombre())
+    })
+}   
