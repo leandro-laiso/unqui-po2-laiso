@@ -1,0 +1,37 @@
+Actividad de lectura: clases abstractas e interfaces
+
+Lea el siguiente material online:
+	- What is inheritance?:
+		- https://docs.oracle.com/javase/tutorial/java/concepts/inheritance.html
+	- Multiple Inheritance of State, Implementation and Type:
+		- https://docs.oracle.com/javase/tutorial/java/IandI/multipleinheritance.html
+	- Interfaces:
+		- https://docs.oracle.com/javase/tutorial/java/concepts/interface.html
+
+Luego, debata y responda las siguientes preguntas:
+1. ¿Qué ventajas, en cuanto a polimorfismo, brindan las interfaces en Java?
+2. ¿Por qué no siempre puedo utilizar clases abstractas para agrupar clases polimórficas?
+3. ¿Qué ventajas tienen las clases abstractas sobre las interfaces?
+4. ¿Se puede instanciar una interface?
+5. ¿Por qué no es recomendable incrementar o modificar las firmas definidas en una interface?
+6. ¿Por qué, en lenguajes como Smalltalk, no es necesaria la implementación de interfaces?
+
+
+Respuestas:
+
+1. Las interfaces en Java permiten que todas las clases que implementan una cierta interfaz entiendan los mensajes definidos en dicha interfaz. De esta manera, todas las instancias de alguna clase cualquiera que implemente una interfaz X pueden ser tratadas de manera polimórfica a través de los métodos que están definidos en dicha interfaz X, sin importar la clase específica a la que pertenezca cada instancia. Además, se permite que una misma clase implemente más de una interfaz. Una interfaz define también un tipo, de manera que se pueden instanciar variables con ese tipo y asgignarle instancias de cualquier clase que implemente la interfaz. De esta manera, se aprovecha el polimorfismo utilizando los métodos definidos en la interfaz.
+
+2. En ocasiones, puede haber clases que compartan ciertos comportamientos particulares entre sí, pero que no compartan un comportamiento lo suficientemente general como para agruparlas como subclases de una misma clase abstracta. Es decir, puede ocurrir que haya varias clases que compartan la posibilidad de hacer algo, pero no estén relacionadas entre sí (Ejemplo de Documento y Sticker, ambos son imprimibles pero tienen comportamientos completamente diferentes). Además, en Java la herencia es simple, por lo que no se puede heredar comportamiento de más de una superclase. Todo esto hace que no siempre se puedan usar clases abstractas para agrupar clases polimórficas de manera adecuada. Las interfaces permiten establecer capacidades comunes sin imponer una jerarquía de herencia, facilitando el polimorfismo entre clases no relacionadas.
+
+3. Las clases abstractas...
+- Pueden tener un estado interno (atributos) ya que serán heredadas por subclases concretas que podrán ser instanciadas. En cambio, las interfaces solo pueden tener valores constantes (variables public, static y final al mismo tiempo) compartidos por todas las clases que la implementen.
+- Pueden implementar parcialmente el comportamiento mediante métodos concretos, que pueden ser aprovechados por las subclases (redefiniendo parte de su comportamiento con template methods, por ejemplo). En cambio, el objetivo principal de las interfaces es definir un contrato de comportamiento (firma de los métodos, sin implementaciones).
+- Representan una relación de jerarquía entre clases (Ej: Producto con subclases de diferentes tipos de productos). En cambio, las interfaces definen comportamientos particulares sin explicitar una relación directa entre las clases que las implementan.
+
+4. No se puede instanciar una interfaz, al igual que no se puede instanciar una clase abstracta. Esto es debido a que no tiene una implementación completa, sino que define un contrato de comportamiento. Dicha implementación la tendrá cada clase que implemente la interfaz, de manera que sí pueda ser instanciada (suponiendo que no es abstracta).
+
+5. Una interfaz representa un contrato que debe ser cumplido por todas las clases que la implementan. Incrementar o modificar las firmas definidas en una interfaz supondría una modificación del contrato, lo que obligaría a modificar todas las clases que implementen dicha interfaz para adaptarse al nuevo contrato. Por esto, no es algo recomendable.
+
+6. En lenguajes como Smalltalk no es necesaria la implementación de interfaces porque utilizan tipado dinámico y envío de mensajes, lo que permite que cualquier objeto pueda ser utilizado de manera polimórfica siempre que responda a los mensajes esperados. De esta forma, el comportamiento define la compatibilidad entre objetos, sin necesidad de declarar contratos explícitos como las interfaces.
+
+
