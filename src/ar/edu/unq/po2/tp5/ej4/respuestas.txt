@@ -1,0 +1,60 @@
+Interfaces, Colecciones y otras yerbas
+
+Para resolver este ejercicio, será necesario que estudie el funcionamiento y protocolo de Collection, List, ArrayList y LinkedList.
+Para ello, puede utilizar como bibliografía los sitios web de la documentación de clases e interfaces de Oracle:
+    - Collection: http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html
+    - List: http://docs.oracle.com/javase/7/docs/api/java/util/List.html
+    - ArrayList: http://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html
+    - LinkedList: http://docs.oracle.com/javase/7/docs/api/java/util/LinkedList.html
+
+Considere la siguiente Clase:
+
+    public class ColeccionadorDeObjetos {
+
+        public Object getFirstFrom(XXX collection) {
+            return collection.get(0);
+        }
+
+        public void addLast(Object element, YYY collection) {
+            collection.add(element);
+        }
+
+        public Collection getSubCollection(ZZZ collection, int from, int to) {
+            return collection.subList(from, to);
+        }
+
+        public Boolean containsElement(WWW collection, Object element) {
+            return collection.contains(element);
+        }
+
+    }
+
+Como notará, los tipos de las colecciones no están definidos. ¿Qué ocurriría si utiliza en lugar de XXX, YYY, WWW y ZZZ las clases e interfaces recientemente estudiadas?
+
+---------------------------------------------------------------------------------------------------
+
+Respuesta:
+
+Observo que la estructura de interfaces y clases es la siguiente:
+
+<<Interface>> Collection
+            |
+            |
+            |
+<<Interface>> List
+            |
+           / \
+          /   \
+         /     \
+  ArrayList    LinkedList
+
+Donde:
+    - Collection es la interfaz más general, utilizada para implementar otras interfaces. No se proporcionan implementaciones directas de esta interfaz.
+    - List es una de las interfaces que implementa la interfaz general Collection, que proporciona comportamiento de lista ordenada que generalmente permite duplicados.
+    - ArrayList es una clase que implementa la interfaz List.
+    - LinkedList es una clase que implementa la interfaz List.
+
+Si se utilizaran las interfaces y clases recientemente estudiadas en la clase dada ColeccionadorDeObjetos:
+    - Tipar los parámetros con Collection permitiría que cualquier clase que implemente a la interfaz Collection sea pasada por parámetro. Collection es la interfaz más general y define el comportamiento para todo tipo de colecciones, incluyendo aquellas que no funcionan como una lista ordenada. Por esto, operaciones como get(0) y subList(from, to) no serían posibles ya que no forman parte del contrato. Por ejemplo, un conjunto no permite obtener elementos o subconjuntos a partir de índices, ya que no están ordenados.
+    - Tipar los parámetros con List permitiría que cualquier clase que implemente a la interfaz List sea pasada por parámetro. Esta interfaz es específica para implementaciones de listas, y provee las operaciones necesarias para la clase ColeccionadorDeObjetos, por lo que puede ser utilizada para tipar los parámetros. De las clases e interfaces dadas, es que permite mayor generalización, pues permite pasar por parámetro instancias de cualquier clase que implemente la interfaz List.
+    - Tipar los parámetros con ArrayList o LinkedList limitaría a que solamente instancias de esas clases específicas sean pasadas por parámetro. Como ambas son implementaciones de List, permiten realizar todas las operaciones definidas en el ColeccionadorDeObjetos. Sin embargo, se estarían excluyendo otras implementaciones que también funcionarían (es decir, es menos general).
