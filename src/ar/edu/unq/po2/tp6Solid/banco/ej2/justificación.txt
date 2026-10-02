@@ -1,0 +1,22 @@
+2.- Justifique por qué su modelo no viola los principios SOLID e marque cuáles
+desiciones tomó para que asi sea.
+
+SRP
+Justificación: Ninguna clase tiene más de una responsabilidad / razón de cambio.
+Decisiones: En lugar de crear una sola clase Banco, se crearon dos clases. Una se encarga de gestionar clientes y la otra de gestionar solicitudes de préstamo.
+
+OCP
+Justificación: El modelo es abierto para extensión y cerrado para modificación en los cambios esperables (en este caso, tener más tipos de préstamos).
+Decisiones: La clase abstracta  SolicitudPréstamo es la conocida por el banco y será la base de todos los tipos de solicitudes de préstamo. Agregar nuevos tipos de préstamo no supone modificaciones en la clase BancoGestiónPréstamos.
+
+LSP
+Justificación: Tanto SolicitudPréstamoPersonal como SolicitudPréstamoHipotecario respetan el contrato de su superclase, y por lo tanto cualquiera de ellos lo puede sustituir sin romper el funcionamiento de BancoGestiónPréstamos.
+Decisiones: Se aseguró que esAceptable() de ambas subclases respeten el contrato de dicho método en la clase abstracta.
+
+ISP
+Justificación: Ninguna clase depende de interfaces que no usa.
+Decisiones: No hay interfaces; Clase abstracta implementada en su totalidad por las subclases.
+
+DIP
+Justificación: El módulo de alto nivel BancoGestiónPréstamos y los módulos de menor nivel SolicitudPréstamoPersonal y SolicitudPréstamoHipotecario dependen de la abstracción SolicitudPréstamo. Las abstracciones no dependen de detalles y los módulos de alto nivel no dependen de los de bajo nivel.
+Decisiones: Se creó la abstracción SolicitudPréstamo.
