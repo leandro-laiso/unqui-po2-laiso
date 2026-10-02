@@ -1,6 +1,4 @@
-package ar.edu.unq.po2.tp6Solid.caso1.solucionado;
-
-import java.util.List;
+package ar.edu.unq.po2.tp6Solid.caso1.ej4;
 
 public interface IServidorAdicional {
 

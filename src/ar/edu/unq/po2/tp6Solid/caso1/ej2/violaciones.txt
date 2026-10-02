@@ -1,0 +1,73 @@
+Caso 1: Email
+Punto 2 (Detectar violaciones a los principios SOLID)
+
+
+
+Single Responsibility Principle
+
+La clase ClienteEMail tiene más de una responsabilidad (razón de cambio):
+
+    - Interacción con el servidor (servidor)
+        - conectar()
+        - recibirNuevos()
+        - enviarCorreo()
+    - Gestión de los correos locales (inbox y borrados)
+        - borrarCorre()
+        - contarBorrados()
+        - contarInbox()
+        - eliminarBorrado()
+
+Un cambio en la forma de comunicación del cliente con el servidor podría provocar cambios en la clase ClienteEMail, al igual que un cambio en la forma que se gestiona el correo local podría provocar cambios en la clase. Es decir, hay dos razones de cambio, y se viola SRP.
+
+Posible solución: Separar ClienteEMail en dos clases, una por responsabilidad.
+
+
+
+Open-Closed Principle
+
+La clase ClienteEMail no es cerrada para modificación. Si se desea implementar otro tipo de servidor para que sea usado por el cliente, se debería cambiar el tipo de la variable <servidor> en ClienteEMail (actualmente tipada con ServidorPop, una clase concreta). Modificar el código fuente de la clase rompe el Open-Closed Principle.
+
+Posible solución: Hacer que ClienteEMail conozca una abstracción de servidor de la cual se derivan los distintos servidores concretos. En este caso, tipar la variable <servidor> con IServidor.
+
+
+
+Liskov Substitution Principle
+
+No se observa una violación a este principio
+
+Para que se viole el principio, debería ocurrir que ServidorPop no sea capaz de sustituir a IServidor respetando el contrato esperado por los clientes de esa abstracción IServidor (en este caso podría ser ClienteEMail).
+
+ServidorPop implementa la interfaz ISeervidor y con la información disponible no se observa un incumplimiento del contrato definido por dicha interfaz. Entonces, ServidorPop (subtipo) puede sustituir a IServidor (su supertipo), LSP establece que "un objeto de un subtipo debe poder sustituir a un objeto de su supertipo". Esto se cumple, por lo que LSP es respetado.
+
+
+
+Interface Segregation Principle
+
+"Los clientes no deben ser obligados a depender de interfaces que no usan"
+
+En este caso, ServidorPop implementa IServidor pero no usa 3 de sus métodos:
+
+    - tasaDeTransferencia()
+    - resetear()
+    - realizarBackup()
+
+La interfaz IServidor está demasiado cargada y agrupa responsabilidades que no son necesarias para todas sus implementaciones. Se viola el principio ISP.
+
+Posible solución: Separar IServidor en dos interfaces distintas.
+
+
+
+Dependency Inversion Principle
+
+DIP establece que :
+
+    1. Los módulos de alto nivel no deberían depender de módulos de menor nivel. Ambos deben depender de abstracciones.
+    2. Las abstracciones no deben depender de detalles. Los detalles deben depender de las abstracciones.
+
+El módulo de alto nivel en este caso sería ClienteEMail y el de menor nivel sería ServidorPop.
+
+Se cumple la parte 2 ya que ServidorPop depende de la abstracción IServidor.
+
+Sin embargo, no se cumple la parte 1, ya que ClienteEMail depende de la implementación concreta ServidorPop en lugar de depender de una abstracción, por lo que no se está respetando el DIP. ClienteEMail necesita una abstracción de servidor que sea capaz de conectar, recibir y enviar correos.
+
+Posible solución: tipar la variable servidor de ClienteEMail con una abstracción de servidor (podría ser IServidor, pero primero solucionar violación a ISP).

@@ -1,6 +1,4 @@
-package ar.edu.unq.po2.tp6Solid.caso1.solucionado;
-
-import java.util.ArrayList;
+package ar.edu.unq.po2.tp6Solid.caso1.ej4;
 
 public class ClienteEMailServidor {
 	

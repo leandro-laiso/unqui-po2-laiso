@@ -1,0 +1,62 @@
+Caso 1: Email
+Punto 3 (Indicar las soluciones que deben llevarse a cabo)
+
+
+
+Para SRP:
+
+Dividir ClienteEMail en dos clases, una por cada responsabilidad identificada
+
+    - ClienteEMailServidor
+        - Responsabilidad: Interacción con el servidor
+        - Atributos:
+            ServidorPop servidor
+            String username
+            String pass
+        - Métodos:
+            conectar()
+            recibirNuevos()
+            enviarCorreo()
+
+    - ClienteEMailLocal
+        - Responsabilidad: gestión local de correos
+        - Atributos:
+            ArrayList<Correo> inbox
+            ArrayList<Correo> borrados
+        - Métodos:
+            borrarCorreo()
+            contarBorrados()
+            contarInbox()
+            eliminarBorrado()
+
+
+
+Para ISP:
+
+Dividir la interfaz sobrecargada IServidor en dos interfaces:
+
+    - IServidorConexión
+        - Responsabilidad más general, debería ser implementada por todo servidor.
+        - Mensajes:
+            recibirNuevos()
+            conectar()
+            enviar()
+
+    - IServidorAdicional
+        - Brinda operaciones adicionales, sólo la implementarán quienes requieran dichas operaciones.
+        - Mensajes:
+            tasaDeTransferencia()
+            resetear()
+            realizarBackup()
+
+ServidorPop sólo implementa IServidorConexión
+
+
+
+Para OCP y DIP:
+
+Tipar la variable <servidor> de ClienteEMailServidor con la abstracción IServidorConexión en lugar de la clase concreta ServidorPop
+
+En OCP: Evita que se deba modificar ClienteEMailServidor al cambiar el tipo de servidor.
+
+En DIP: Hace que ClienteEMailServidor dependa de una abstracción y no de una clase concreta de menor nivel.

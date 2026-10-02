@@ -1,4 +1,4 @@
-package ar.edu.unq.po2.tp6Solid.caso1.inicial;
+package ar.edu.unq.po2.tp6Solid.caso1.ej1;
 
 public class Correo {
 
