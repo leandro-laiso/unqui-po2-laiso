@@ -1,18 +1,12 @@
 package ar.edu.unq.po2.tp5.ej5;
 
-import org.junit.jupiter.api.BeforeEach;
-
-import java.io.PrintStream;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.lang.IO.print;
-import static java.lang.IO.println;
-
 public class PersonaMascotaTest {
 
-    static void main() {
+    public static void main(String[] args) {
 
         Persona leandro, ulises;
         Mascota perro, gato;
@@ -33,7 +27,7 @@ public class PersonaMascotaTest {
         coleccion.add(gato);
 
         coleccion.forEach(nombrable -> {
-            println(nombrable.getNombre());
+            System.out.println(nombrable.getNombre());
         });
     }
 }
