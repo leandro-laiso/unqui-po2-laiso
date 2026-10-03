@@ -1,0 +1,14 @@
+TDD Y Test de Unidad
+
+Explique y desarrolle el significado de los siguientes postulados de TDD y Test de Unidad.
+
+    1. Mantener en forma exhaustiva una suite de tests.
+    2. No deben utilizarse para testear otros objetos del dominio.
+    3. Comunicar la intención del test.
+
+Respuestas:
+1. Considero importante mantener una suite de test que cubra por completo todas las funcionalidades de cada clase para garantizar en tod0 momento el correcto funcionamiento de las mismas. Si se cuenta con tests que cubran todos los métodos de una clase con la mayoría de escenarios posibles, no solo se garantiza que el funcionamiento sea el esperado, sino que también permite hacer refactoring con la seguridad de que, si se siguen cumpliendo los tests, el programa sigue funcionando de la manera esperada.
+
+2. Al testear una clase, es importante no utilizar otras clases del dominio/diseño. Cada test debe centrarse en la clase que está testeando. Si se utilizan otras clases, se requiere que estén programadas, y además que funcionen correctamente. Mal funcionamiento de otras clases o cambios en las mismas podrían ocasionar que el test de la clase a testear falle, aunque la clase a testear funcione correctamente. Entonces, el test no cumpliría su función.
+
+3. Se debe comunicar la intención de cada test para explicitar qué aspecto/escenario se está probando en dicho test, y en caso de que falle, facilitar la identificación de la funcionalidad a reparar.
