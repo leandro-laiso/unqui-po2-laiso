@@ -7,17 +7,17 @@ import static java.util.EnumSet.range;
 public class Carta {
 
     // Atributos
-    String valor;
+    Valor valor;
     String palo;
 
     // Constructor
-    public Carta(String valor, String palo) {
+    public Carta(Valor valor, String palo) {
         this.valor = valor;
         this.palo = palo;
     }
 
     // Getters
-    public String getValor() {
+    public Valor getValor() {
         return valor;
     }
 
@@ -27,19 +27,7 @@ public class Carta {
 
     // Métodos
     public boolean esValorSuperior(Carta carta) {
-        return this.getValorNumerico() > carta.getValorNumerico();
-    }
-
-    public int getValorNumerico() {
-        String actual;
-        int i;
-        for (i = 1; i <= 10; i++) {
-            actual = ""+i;
-            if (actual.equals(this.getValor())) {
-                break;
-            }
-        }
-        return i;
+        return this.getValor().valorNumerico() > carta.getValor().valorNumerico();
     }
 
     public boolean esDelMismoPalo(Carta carta) {

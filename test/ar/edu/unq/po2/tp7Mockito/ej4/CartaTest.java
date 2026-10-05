@@ -9,33 +9,33 @@ import static org.junit.jupiter.api.Assertions.*;
 public class CartaTest {
 
     // Definiciones
-    private Carta diamante1;
+    private Carta diamanteAS;
     private Carta diamante3;
     private Carta picasK;
 
     // SETUP
     @BeforeEach
     public void setUp() {
-        diamante1 = new Carta("1", "D");
-        diamante3 = new Carta("3", "D");
-        picasK    = new Carta("K", "P");
+        diamanteAS = new Carta(Valor.AS, "D");
+        diamante3 = new Carta(Valor.TRES, "D");
+        picasK    = new Carta(Valor.K, "P");
     }
 
     @Test
     public void testConstructor() {
         // EXERCISE
-        String valor = diamante1.getValor();
-        String palo = diamante1.getPalo();
+        Valor valor = diamanteAS.getValor();
+        String palo = diamanteAS.getPalo();
 
         // VERIFY
-        assertEquals("1", valor);
+        assertEquals(Valor.AS, valor);
         assertEquals("D", palo);
     }
 
     @Test
     public void testValorSuperiorAOtroCasoVerdadero() {
         // EXERCISE
-        boolean esSuperior = diamante3.esValorSuperior(diamante1);
+        boolean esSuperior = diamanteAS.esValorSuperior(diamante3);
 
         // VERIFY
         assertTrue(esSuperior);
@@ -53,7 +53,7 @@ public class CartaTest {
     @Test
     public void testMismoPaloCasoVerdadero() {
         // EXERCISE
-        boolean mismoPalo = diamante1.esDelMismoPalo(diamante3);
+        boolean mismoPalo = diamanteAS.esDelMismoPalo(diamante3);
 
         // VERIFY
         assertTrue(mismoPalo);
@@ -62,7 +62,7 @@ public class CartaTest {
     @Test
     public void testMismoPaloCasoFalso() {
         // EXERCISE
-        boolean mismoPalo = diamante1.esDelMismoPalo(picasK);
+        boolean mismoPalo = diamanteAS.esDelMismoPalo(picasK);
 
         // VERIFY
         assertFalse(mismoPalo);
@@ -71,7 +71,7 @@ public class CartaTest {
     // TEARDOWN
     @AfterEach
     public void teardown() {
-        diamante1 = null;
+        diamanteAS = null;
         diamante3 = null;
         picasK    = null;
     }
