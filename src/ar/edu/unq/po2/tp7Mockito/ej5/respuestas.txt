@@ -1,0 +1,47 @@
+Consignas:
+
+2. ¿Cómo se indica en mockito que el objeto mock debe recibir una secuencia de mensajes particular en un orden
+preestablecido? Agregue un ejemplo.
+
+3. ¿Cómo hacer para que un objeto mock este preparado para recibir algunos mensajes sin importar el orden o la
+obligatoriedad de recibirlos? Agregue un ejemplo.
+
+4. ¿Es posible anidar envío de mensajes con mockito?. Si es posible, ¿Cómo se hace?.
+
+5. ¿Cómo es la forma de verificación con mockito?
+
+
+
+Respuestas:
+
+2. En Mockito, para indicar que el objeto MOCK debe recibir una secuencia de mensajes particular en un orden preestablecido, se crea una instancia de InOrder a la que se le pasa como parámetro el/los objetos mock de los que se quiere verificar el orden de las llamadas a mensajes. Mockito tiene registrado el historial de llamadas que recibió cada objeto MOCK, y con la instancia de InOrder es posible consultar ese historial para verificar que el orden en que se realizaron las llamadas sea el deseado. Esto se hace con una secuencia de instanciaInOrder.verify(objetoMock).mensajeDeseado() en el orden que se desea verificar. Si uno de los mensajes no coincide con el orden esperado, la verificación correspondiente fallará.
+
+Este comportamiento está mostrado con ejemplos en los test testOrden() y testOrdenMultiplesMock() en el archivo de test PruebasParaRespuestas.java
+
+
+
+3. Un objeto Mock de una clase siempre está preparado para recibir invocaciones a mensajes de esa clase.
+
+Si se desea verificar que haya recibido determinadas invocaciones sin exigir un orden específico, se realizan verificaciones del estilo verify(objetoMock).mensaje(). Opcionalmente, se puede indicar mediante los métodos de verificación correspondientes una cantidad mínima, máxima o exacta de invocaciones del mensaje.
+
+Si no se desea exigir que el objeto Mock haya recibido cierto mensaje, no se realiza una verificación verify() sobre dicho mensaje.
+
+Este comportamiento está mostrado con ejemplos en el test testOrdenYObligatoriedadDeRecepción() en el archivo de test PruebasParaRespuestas.java
+
+
+
+4. No entiendo a qué se refiere con "anidar envío de mensajes con mockito".
+
+
+
+5. En Mockito, la verificación se realiza principalmente mediante verify(). Su objetivo es comprobar que un objeto mock recibió determinadas invocaciones.
+
+Su forma básica es:
+    verify(objetoMock).mensaje();
+
+Se pueden agregar modos de verificación para verificar que el mensaje haya sido recibido una cierta cantidad de veces:
+    verify(mock, times(1)).mensaje();   // exactamente 1 invocación
+    verify(mock, times(3)).mensaje();   // exactamente 3 invocaciones
+    verify(mock, never()).mensaje();    // 0 invocaciones
+    verify(mock, atLeast(2)).mensaje(); // 2 o más invocaciones
+    verify(mock, atMost(3)).mensaje();  // 3 o menos invocaciones
