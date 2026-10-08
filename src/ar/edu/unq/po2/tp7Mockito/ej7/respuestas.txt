@@ -1,0 +1,23 @@
+Test Doubles
+1) ¿Qué son los test doubles?
+2) Enumere los tipos de test doubles y de ejemplos concretos de uso. Indique como usaría, cuando es posible, mockito para emular los diferentes tipos de tipos de test doubles.
+
+
+Respuestas:
+
+1. Los test doubles son objetos que reemplazan a otros objetos durante la ejecución de un test, pudiendo adoptar distintos tipos de comportamiento, como Dummy, Stub, Mock o Spy. Son útiles para que un test unitario sobre una clase SUT no dependa de las implementaciones de otras clases (sus DOC). Para testear una clase, las instancias de sus DOC pueden ser reemplazadas por test doubles, permitiendo aislar al SUT de dichas dependencias. De esta forma, el test puede verificar el correcto funcionamiento de la clase testeada independientemente del correcto funcionamiento de las clases de las que esta depende.
+
+
+
+2. Tipos de Test Doubles:
+
+    - Dummy: Es un objeto que se crea para "ocupar un espacio", pero nunca se utiliza (no se le mandan mensajes).
+        - Ejemplo: dummyReceta en test/ar.edu.unq.po2.teoria.mockito.extras/SistemaDeResetasTest (se usa como parámetro de SistemaDeRecetas.publicar(dummyReceta) para verificar que aumenta la cantidad de recetas, es decir, si se agrega un elemento a la lista de recetas).
+
+    - Stub: Proporciona respuestas pre-programadas a las llamadas a mensajes.
+        - Ejemplo: Los mock de Carta en PokerStatusTest del Ejercicio 5, que tienen respuestas pre-programadas para getValor() y getPalo() para poder responder el valor y palo de la carta, datos que son necesarios para PokerStatus.verificar(...).
+
+    - Mock: Permite verificar llamadas a mensajes.
+        - Ejemplo: otroGuerrero en test/ar.edu.unq.po2.teoria.mockito.guerrero/GuerreroDelAzarTestCase (se le verifica que haya recibido el mensaje descontarVida() al ser atacado por un guerrero).
+
+    - Spy:
