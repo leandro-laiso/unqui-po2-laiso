@@ -20,4 +20,5 @@ Respuestas:
     - Mock: Permite verificar llamadas a mensajes.
         - Ejemplo: otroGuerrero en test/ar.edu.unq.po2.teoria.mockito.guerrero/GuerreroDelAzarTestCase (se le verifica que haya recibido el mensaje descontarVida() al ser atacado por un guerrero).
 
-    - Spy:
+    - Spy: Envuelve una instancia real y permite observar o modificar selectivamente su comportamiento. Sus métodos sí ejecutan la implementación real.
+        - Ejemplo: spyListaDeRecetas en test/ar.edu.unq.po2.teoria.mockito.extras/SistemaDeResetasTest: se crea un Spy sobre una ArrayList de Receta, para luego verificar que a dicha ArrayList se le hayan mandado ciertos mensajes como add() y size(). Esto normalmente no podría hacerse si se tiene la ArrayList normal sin Spy, ya que Mockito no estaría observando la instancia de ArrayList para hacer los verify(). El spy no reemplaza el comportamiento real de ArrayList, sino que lo conserva permitiendo además observar sus interacciones mediante Mockito.
