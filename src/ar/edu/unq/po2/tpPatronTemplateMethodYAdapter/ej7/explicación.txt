@@ -1,0 +1,45 @@
+Se tienen las clases Ventana y ListaDePalabrasOrdenadas.
+    - Ventana se encarga de visualizar la lista de palabras sin orden alfabético.
+    - ListaDePalabrasOrdenadas mantiene una lista de palabras ordenadas alfabéticamente y tiene el comportamiento para agregar nuevas palabras.
+
+Se desea que Ventana reciba una instancia adaptada de ListaDePalabrasOrdenadas.
+
+Ventana se construye recibiendo por parámetro una instancia de DefaultListModel, y usa su interfaz.
+
+La interfaz de DefaultListModel cuenta con los siguientes métodos relevantes utilizados por Ventana:
+    - addElement(Object): void
+    - getSize(): int
+    - getElementAt(int): Object
+
+ListaDePalabrasOrdenadas tiene una interfaz incompatible con la interfaz esperada por Ventana:
+    - agregarPalabra(String): void
+    - cantidadDePalabras(): Integer
+    - getPalabraDePosicion(int): String
+
+Además, ListaDePalabrasOrdenadas no puede ser pasado como parámetro en la instanciación de una Ventana porque esta espera una instancia de tipo DefaultListModel.
+
+Se identifican los siguientes roles:
+    - DefaultListModel -> Target
+        - Define la interfaz específica de dominio que utiliza Client (Ventana).
+    - Ventana -> Client
+        - Colabora con objetos que cumplen con la interfaz de Target (DefaultListModel).
+    - ListaDePalabrasOrdenadas -> Adaptee
+        - Define una interfaz existente que necesita ser adaptada.
+
+Se necesita adaptar la interfaz de ListaDePalabrasOrdenadas a la de DefaultListModel, que es la esperada por Ventana.
+
+Se crea entonces la clase AdapterListaDePalabrasOrdenadas
+    - Cumple el rol de Adapter
+    - Adapta la interfaz de ListaDePalabrasOrdenadas a la de DefaultListModel
+    - Cumple con la versión "Objeto" del patrón Adapter
+            - Hereda de DefaultListModel
+                - Para presentar la interfaz que espera Ventana
+            - Contiene una instancia de ListaDePalabrasOrdenadas
+                - Para delegarle las operaciones
+
+Se pueden destacar los siguientes aspectos:
+    - Compatibilidad: AdapterListaDePalabrasOrdenadas puede pasarse al constructor de Ventana porque es subtipo de DefaultListModel.
+    - Delegación: los métodos sobrescritos traducen las operaciones del modelo a las operaciones que ofrece ListaDePalabrasOrdenadas.
+    - Separación de responsabilidades: el Adapter resuelve la incompatibilidad entre las interfaces, mientras que la lista ordenada sigue siendo responsable del orden alfabético.
+
+Ahora, sin haber modificado ninguna de las dos clases originales (Ventana y ListaDePalabrasOrdenadas), Ventana puede instanciarse recibiendo como parámetro una instancia de AdapterListaDePalabrasOrdenadas. De esta manera, puede utilizar la interfaz de DefaultListModel para agregar y consultar palabras, mientras que el adaptador delega las operaciones correspondientes en ListaDePalabrasOrdenadas, que mantiene el orden alfabético. Así, Ventana no necesita conocer la interfaz de ListaDePalabrasOrdenadas.
