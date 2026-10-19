@@ -1,0 +1,3 @@
+Para que LlamadorBomberos observe simultáneamente a varios Sensor:
+    - RelojHumedad y AireAcondicionado deberían tener una colección de sensores en lugar de una variable miSensor.
+    - En AireAcondicionad.update() y RelojHumedad.update(), se debería utilizar el parámetro o, que identifica al sujeto que notificó, para identificar al sensor en la colección y consultar su estado.

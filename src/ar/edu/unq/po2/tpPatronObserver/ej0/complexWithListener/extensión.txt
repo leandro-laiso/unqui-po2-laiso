@@ -1,0 +1,2 @@
+Para que LlamadorBomberos observe simultáneamente a varios Sensor:
+    - El observer ya puede distinguir entre los distintos sensores, ya que en la notificación se envia una referencia al sensor que la originó. No necesita una referencia individual a cada sensor. Solo debe registrarse como listener de los sensores que quiera observar.
