@@ -1,0 +1,31 @@
+1. ¿Qué impacto genera en su diseño el hecho de compartir instancias de parcelas entre composiciones? Es decir, que la misma instancia se encuentre en más de una composición.
+
+2. Implemente en Smalltalk su solución del problema.
+
+3. Describa las alternativas que puede utilizar para calcular la ganancia anual. Relacione las alternativas.
+
+4. Explique la discusión sobre quiénes deben implementar las operaciones de agregado y borrado de hijos.
+
+5. Sobre su implementación, indique los roles que desepeñan cada una de las clases diseñadas en relación con el patrón Composite.
+
+
+Respuestas:
+
+1. En mi diseño, el hecho de compartir parcelas entre composiciones permite ahorrar memoria, y no tiene ningún efecto negativo. Como Trigo y Soja no tienen estado interno y siempre retornan una ganancia anual fija, pueden ser compartidas entre distintas composiciones (regiones mixtas) sin problemas. A su vez, cada region de tipo Mixto conoce a otras 4 subregiones, que saben calcular sus ganancias anuales de forma individual, y la división proporcional de las ganancias de acuerdo con las subparcelas se realiza de forma recursiva. Si hubiera referencias a padres, compartir parcelas entre composiciones generaría conflictos de pertenencia.
+
+2. Implementado en Java con tests.
+
+3. La alternativa utilizada consiste en que cada Mixto suma las ganancias de sus cuatro subregiones y divide el resultado por cuatro. De esta manera, un Mixto1 dentro de otro Mixto2 funciona de manera recursiva (se divide por 4 en Mixto1, y en Mixto2 se divide ese resultado por 4, resultando en una división por 16 respecto de la región original).
+
+Otra alternativa sería que un Mixto acumule un factor relacionado con la proporción de superficie de cada parcela respecto de la región original, y recorra sus subregiones hasta llegar a las parcelas puras, dividiendo por 4 el factor cada vez que "baja" un nivel en la jerarquía de parcelas. Esta segunda alternativa es menos natural con el patrón Composite, ya que requiere un recorrido que acumule información sobre el contexto de la región original, mientras que la primera permite que cada componente calcule su propia ganancia y delegue recursivamente en sus subregiones.
+
+4. La discusión sobre quiénes deben implementar las operaciones de agregado y borrado de hijos gira en torno al intercambio entre seguridad y transparencia:
+        - Tener las operaciones de agregado de hijos en la interfaz abstracta (Component) brinda transparencia, ya que todos los componentes (sean Leaf o Composite) comparten la misma interfaz, pero se sacrifica seguridad, ya que las Leaf tendrán operaciones que no pueden llevar a cabo (no tienen hijos).
+        - Tener las operaciones de agregado de hijos solo en las clases Composite brinda seguridad, ya que las Leaf mantienen solamente las operaciones significativas para ellos, pero se sacrifica transparencia, ya que la interfaz no es igual para todos los tipos de componentes (Leaf y Composite).
+   En el patrón Composite se prioriza la transparencia, para poder tratar a todos los componentes de manera uniforme. En la solución UML alternativa planteada se puede observar un ejemplo de esto. Las operaciones de agregado y borrado de hijos son definidas en la clase Component, lanzando una excepción por defecto. Las Leaf no sobreescriben esas operaciones (lanzan excepción), y el composite las sobreescribe con el comportamiento adecuado.
+
+5. Clases y sus roles en relación con Composite:
+    - Región          -> Component
+    - Soja, Trigo     -> Leaf
+    - Mixto           -> Composite
+        - subregiones -> Children
