@@ -1,0 +1,12 @@
+- Ventajas:
+    - Los observers reciben el nuevo valor ante un cambio de estado al momento de recibir la notificación (no necesitan pedírselo al subject, por lo que hay menos consultas).
+    - Contrato explícito entre un subject y sus observers mediante la interfaz.
+
+
+- Desventajas:
+    - Todos los observers deben implementar los tres métodos de la interfaz aunque no los utilicen todos.
+    - No se puede reutilizar a los observers con otro tipo de sensor.
+    - El ComplexSensor (subject) necesita conocer las necesidades de sus observers para mandarle la información (las necesidades son las de la interfaz, por eso se dificulta la reutilización de observers. Tod0 ComplexSensor asume que los observers cumplen con la interfaz).
+    - Todos los observers son notificados de todos los cambios, recibiendo el nuevo valor del estado de ComplexSensor. Muchos de estos cambios serán ignorados por el observer (asumiendo una implementación nula del método correspondiente).
+
+Se respeta el modelo push de los protocolos de actualización.

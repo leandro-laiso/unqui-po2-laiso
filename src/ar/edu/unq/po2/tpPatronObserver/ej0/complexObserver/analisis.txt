@@ -1,0 +1,9 @@
+- Ventajas:
+    - ComplexSensor (subject) respeta el modelo pull de los protocolos de actualización, por lo que no necesita saber nada de sus observers, solo le manda la notificación.
+    - ComplexSensor (subject) informa qué atributo cambió mediante arg, por lo que cada observador puede reaccionar únicamente ante los cambios relevantes. Se reduce la cantidad de consultas, ya que RelojHumedad solo pedirá la humedad al sensor mediante getHumedad() cuando haya cambiado la humedad (y no otro aspecto del estado).
+    - Puede haber varios observers consultando distintos datos del mismo ComplexSensor.
+
+- Desventajas:
+    - Los observers reciben notificación ante los cambios, pero luego deben pedirle al sensor la información que necesiten verificar.
+    - Los observers son notificados ante cualquier cambio en el sensor, aunque no sea de su interés. En ese caso, ignoran la notificación, pero igualmente deben ejecutar la lógica (no entran al if). Varias actualizaciones seguidas de distintos aspectos notificarán a todos los observers cada vez. Cada observer debería poder registrarse para que el ComplexSensor le notifique solamente los eventos de su interés.
+    - AireAcondicionado y RelojHumedad dependen de ComplexSensor y sus metodos getTemperaturaExterior(), getTemperaturaInterior() y getHumedad(), lo que dificulta la reutilización con otros sensores.

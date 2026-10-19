@@ -1,0 +1,8 @@
+- Ventajas:
+    - Sensor (subject) respeta el modelo pull de los protocolos de actualización, por lo que no necesita saber nada de sus observers ni enviarles información, simplemente les manda la notificación.
+
+- Desventajas:
+    - Sensor (subject) respeta el modelo pull de los protocolos de actualización: notifica a sus observers cada vez que cambia, pero no les da ningún tipo de información sobre el cambio que ocurrió. El LlamadorBomberos (observer) debe luego pedirle la información que necesite verificar. En este caso no hay mucho problema porque solamente hay un cambio posible (el de temperatura).
+    - Como el que se encarga de iniciar las actualizaciones es el sensor, varios cambios seguidos de temperatura podrían causar varias actualizaciones seguidas. En este caso, es esperable, ya que la temperatura varía tod0 el tiempo y el LlamadorBomberos debe analizar cada cambio de temperatura para detectar temperaturas inusuales. Sin embargo, alguna de las modificaciones intermedias podría perderse porque podría actualizarse el valor de nuevo antes de que el observer lo consulte.
+    - Se notifica a todos los observers ante cualquier cambio, aunque a algunos observers pueda no interesarles dicho cambio. En este caso no hay problema, ya que hay un solo cambio posible (el de temperatura).
+    - LlamadorBomberos depende de Sensor y su metodo getTemperatura(), lo que dificulta la reutilización con otros sensores.
